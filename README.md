@@ -1,6 +1,9 @@
 # react-audio-visualization
 
-This tutorial is for creating an audio visualization in React with the web audio API.
+This tutorial is for creating an audio visualization in React with the web audio API, and the canvas API.
+
+##Editorial
+You assume a bunch of stuff, put it in a bulleted list with hyperlinks.
 
 ### Let's get some stuff out of the way first,
 
@@ -34,13 +37,18 @@ Then open up the directory in your favorite text editor. \(I use Atom\) You can 
 ```
 atom .
 ```
+##Editorial
+Assume they have an editor installed by using the variable $CODE_EDITOR and programmers kinda know what that means
+
 If you see an error that says atom is not a command then go to atom and look at the top menu bar. Click the drop down that says Atom and look for Install shell commands. Click that and you should now be able to use the atom command in your terminal.  
 
 
 ![Atom menu example](http://i68.tinypic.com/avhjz7.png)
 
+##Editorial
+Assume some constant level of knowledge, and if you're teaching React, it's generally safe to assume they know node or at least not to fuck with node modules.
 
- Now that you've opened up the directory with your text editor, take a look around! Don't worry about the node modules or anything else that looks confusing. We will walk through this step by step.  
+ Now that you've opened up the directory with your text editor, take a look around! We will walk through this project step by step below.  
 
 The file structure will look like this:  
 ![File structure example](http://i64.tinypic.com/keao0i.png)
@@ -61,8 +69,9 @@ audio-visuals/
     index.js
     logo.svg
 ``` -->
-Navigate to audio-visuals/src/App.js
- you should see this in the file:
+
+
+## audio-visuals/src/App.js
 
 ```
  import React, { Component } from 'react';
@@ -87,7 +96,7 @@ Navigate to audio-visuals/src/App.js
 
  export default App;
 ```
- You can delete some lines and leave it looking like this, or just paste the following code over it.
+We can simplify and leave it looking like this to get started.
 
  ```
  import React, { Component } from 'react';
@@ -106,9 +115,9 @@ Navigate to audio-visuals/src/App.js
  ```
 ### Now comes the real coding :)
 
-Now inside the div with the className App we will insert an audio tag, with whatever song you'd like. I'm going to use sublime! Also add an h2 tag to say the name of the song and artist you choose.
+Inside the div with the className App, insert an audio tag with whatever song you'd like. I'm going to use Sublime! Also add an `h2` tag to say the name of the song and artist you choose.
 
-now the App Component should look like this:
+Now the App Component should look like this:
 
 ```
 class App extends Component {
@@ -129,14 +138,14 @@ class App extends Component {
 }
 ```
 
-As you can see we have set a few attributes on the audio tag, including the ref attribute. This is so we can reference the tag in a method we will write on our component later on. [Learn more about the ref attribute here!](https://facebook.github.io/react/docs/refs-and-the-dom.html)
+We've set a few attributes on the audio tag, including the `ref` attribute. This is for referencing the tag in a method we will write on our component later on. [Learn more about the ref attribute here!](https://facebook.github.io/react/docs/refs-and-the-dom.html)
 
-You can now run ```npm start``` in your terminal and see the audio tag rendered on your webpage running on localhost:3000. Mine looks like this:  
+You can now run ```npm start``` in your terminal and see the audio tag rendered on your webpage running on `localhost:3000`. Mine looks like this:  
 
 
 ![First website test](http://i67.tinypic.com/11t5sv8.png)  
 
-Go back to atom or your text editor and add a canvas tag underneath the audio tag. Add a ref attribute of "analyzerCanvas" and an id of "analyzer". I've also added a couple divs with specific Ids so we can reference them later. Your app component should look like this now:
+Go back to atom or your text editor and add a canvas tag underneath the audio tag. Add a `ref` attribute of `"analyzerCanvas"` and an `id` of `"analyzer"`. I've also added a couple `div`s with specific `id`s so we can reference them later. Your app component should look like this now:
 
 ```
 class App extends Component {
